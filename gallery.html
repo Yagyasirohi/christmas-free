@@ -3,22 +3,70 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Christmas Gallery 🎄</title>
+  <title>Our Little Memories 🎄</title>
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .gallery figure {
+      text-align: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(255, 105, 180, 0.35);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(255, 20, 147, 0.6);
+    }
+
+    figcaption {
+      margin-top: 8px;
+      font-style: italic;
+      color: #ffb6c1;
+      font-size: 0.95rem;
+    }
+  </style>
 </head>
+
 <body>
   <div class="container">
-    <h1>Christmas Gallery 🎄</h1>
+    <h1>Our Little Memories ❤️🎄</h1>
 
     <div class="gallery">
-      <img src="https://images.unsplash.com/photo-1543589077-47d81606c1bf" />
-      <img src="https://images.unsplash.com/photo-1512389098783-66b81f86e199" />
-      <img src="https://images.unsplash.com/photo-1608889175112-b33f9f3c1c4a" />
-      <img src="https://images.unsplash.com/photo-1545580492-8859ba8323cb" />
+      <figure>
+        <img src="yuki1.png" alt="Yuki 1">
+        <figcaption>Your smile feels like Christmas ❄️</figcaption>
+      </figure>
+
+      <figure>
+        <img src="yuki2.png" alt="Yuki 2">
+        <figcaption>Moments I never want to forget 💕</figcaption>
+      </figure>
+
+      <figure>
+        <img src="yuki3.png" alt="Yuki 3">
+        <figcaption>You make everything warmer 🎄</figcaption>
+      </figure>
+
+      <figure>
+        <img src="yuki4.png" alt="Yuki 4">
+        <figcaption>My favorite kind of magic ✨</figcaption>
+      </figure>
     </div>
 
     <br /><br />
-    <a href="index.html" class="button">Back to Message 🎄</a>
+    <a href="index.html" class="button">Back to Message 🎁</a>
   </div>
 
   <script src="script.js"></script>
