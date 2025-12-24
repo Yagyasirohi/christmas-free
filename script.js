@@ -1,3 +1,4 @@
+// --- Snowfall animation ---
 const canvas = document.createElement("canvas");
 canvas.className = "snow";
 document.body.appendChild(canvas);
@@ -41,12 +42,12 @@ function draw() {
 }
 draw();
 
-// Background music controls
+// --- Background music ---
 const bgm = new Audio();
-bgm.src = 'assets/bgm.mp3';
+bgm.src = 'song.mp3'; // Make sure song.mp3 is in the same folder as index.html
 bgm.loop = true;
 bgm.volume = 0.28;
-bgm.preload = 'auto';
+
 let musicPlaying = false;
 
 function updateMusicButton() {
@@ -62,7 +63,6 @@ function playMusic() {
     updateMusicButton();
     localStorage.setItem('bgmPlaying', '1');
   }).catch(() => {
-    // Autoplay blocked; wait for user interaction
     musicPlaying = false;
     updateMusicButton();
   });
@@ -76,20 +76,21 @@ function pauseMusic() {
 }
 
 function toggleMusic() {
-  if (musicPlaying) pauseMusic(); else playMusic();
+  if (musicPlaying) pauseMusic();
+  else playMusic();
 }
 
+// --- DOM Events ---
 document.addEventListener('DOMContentLoaded', () => {
   const btn = document.getElementById('music-toggle');
   if (!btn) return;
-  btn.addEventListener('click', () => {
-    toggleMusic();
-  });
 
-  // Restore preference if user previously enabled music
+  btn.addEventListener('click', toggleMusic);
+
+  // Restore previous music state
   const saved = localStorage.getItem('bgmPlaying');
   if (saved === '1') {
-    // Many browsers block autoplay; try to play on first user gesture
+    // Many browsers block autoplay, try play on first click
     const tryPlay = () => {
       playMusic();
       window.removeEventListener('click', tryPlay);
